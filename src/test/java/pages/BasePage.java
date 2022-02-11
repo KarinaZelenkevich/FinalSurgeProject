@@ -12,7 +12,7 @@ public abstract class BasePage {
 //    public static final By MODAL_TITLE = By.xpath("//div[@class='modal-container slds-modal__container']//h2");
 
 
-    WebDriver driver;
+    static WebDriver driver;
     WebDriverWait wait;
 
 

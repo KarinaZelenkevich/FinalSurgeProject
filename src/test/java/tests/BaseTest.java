@@ -6,8 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.HomePage;
-import pages.LoginPage;
+import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,6 +15,14 @@ public abstract class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     HomePage homePage;
+    CalendarPage calendarPage;
+    CalendarModalPage calendarModalPage;
+    CalendarListPage calendarListPage;
+    CalendarDetailsPage calendarDetailsPage;
+    WorkoutCalculatorDetailsPage workoutCalculatorDetailsPage;
+    IntensityPage intensityPage;
+    WorkoutCalculatorListPage workoutCalculatorListPage;
+    HansonsPage hansonsPage;
 
 
     @BeforeMethod
@@ -27,6 +34,15 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+        calendarPage = new CalendarPage(driver);
+        calendarModalPage = new CalendarModalPage(driver);
+        calendarListPage = new CalendarListPage(driver);
+        calendarDetailsPage = new CalendarDetailsPage(driver);
+        workoutCalculatorDetailsPage = new WorkoutCalculatorDetailsPage(driver);
+        intensityPage = new IntensityPage(driver);
+        workoutCalculatorListPage = new WorkoutCalculatorListPage(driver);
+        hansonsPage = new HansonsPage(driver);
+
 
     }
 

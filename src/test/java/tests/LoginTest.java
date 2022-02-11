@@ -7,7 +7,7 @@ import static org.testng.Assert.assertTrue;
 public class LoginTest extends BaseTest {
 
     @Test
-    public void login() {
+    public void loginWithValidData() {
         boolean isHomePageOpened = loginPage
                 .open()
                 .login("blablablablablabla@maillinator.com", "KarinaKarina12")
@@ -17,4 +17,5 @@ public class LoginTest extends BaseTest {
         assertTrue(isHomePageOpened, "Страница HomePage не открылась");
 
     }
+
 }

@@ -1,0 +1,49 @@
+package pages;
+
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+@Log4j2
+public  class WorkoutCalculatorListPage extends BasePage {
+
+    public static final By TITLE = By.id("dpMonth");
+    public static final By CALCULATOR_BUTTON = By.xpath("//*[@class='icsw16-stop-watch']");
+    private static final String IFRAME_BUTTON = "IntensityCalciFrame";
+    public static final By HANSONS_BUTTON = By.xpath("//a[contains(text(), 'Hansons')]");
+
+    public WorkoutCalculatorListPage(WebDriver driver) {
+        super(driver);
+    }
+
+    @Override
+    public boolean isPageOpen() {
+        return isExist(TITLE);
+    }
+
+
+    @Step("Open account page")
+    public static WorkoutCalculatorListPage open() {
+        log.info("Open Calendar Page {}", BASE_URL);
+        driver.get(BASE_URL + "/Calendar.cshtml");
+        return new WorkoutCalculatorListPage(driver);
+    }
+
+    @Step("Click workout calculator on calendar page")
+    public IntensityPage clickWorkoutCalculator() {
+        log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
+        driver.findElement(CALCULATOR_BUTTON).click();
+        driver.switchTo().frame(IFRAME_BUTTON);
+        return new IntensityPage(driver);
+    }
+
+    @Step("Click workout calculator and then the Hansons button")
+    public HansonsPage clickWorkoutCalculatorAndHansonsButton() {
+        log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
+        driver.findElement(CALCULATOR_BUTTON).click();
+        driver.switchTo().frame(IFRAME_BUTTON);
+        driver.findElement(HANSONS_BUTTON).click();
+        return new HansonsPage(driver);
+    }
+}
