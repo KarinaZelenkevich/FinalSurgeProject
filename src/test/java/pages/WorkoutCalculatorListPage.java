@@ -12,6 +12,9 @@ public  class WorkoutCalculatorListPage extends BasePage {
     public static final By CALCULATOR_BUTTON = By.xpath("//*[@class='icsw16-stop-watch']");
     private static final String IFRAME_BUTTON = "IntensityCalciFrame";
     public static final By HANSONS_BUTTON = By.xpath("//a[contains(text(), 'Hansons')]");
+    public static final By MCMILLAN_BUTTON = By.xpath("//a[contains(text(), 'McMillan')]");
+    public static final By TINMAN_BUTTON = By.xpath("//a[contains(text(), 'Tinman')]");
+    public static final By PALLADINO_BUTTON = By.xpath("//a[contains(text(), 'Palladino')]");
 
     public WorkoutCalculatorListPage(WebDriver driver) {
         super(driver);
@@ -45,5 +48,34 @@ public  class WorkoutCalculatorListPage extends BasePage {
         driver.switchTo().frame(IFRAME_BUTTON);
         driver.findElement(HANSONS_BUTTON).click();
         return new HansonsPage(driver);
+    }
+    @Step("Click workout calculator and then the McMillan button")
+    public McMillanPage clickWorkoutCalculatorAndMcMillanButton() {
+        log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
+        driver.findElement(CALCULATOR_BUTTON).click();
+        driver.switchTo().frame(IFRAME_BUTTON);
+        log.info("Click {} in order to open the McMillan workout on the calculator page", MCMILLAN_BUTTON);
+        driver.findElement(MCMILLAN_BUTTON).click();
+        return new McMillanPage(driver);
+    }
+
+    @Step("Click workout calculator and then the Tinman button")
+    public TinmanPage clickWorkoutCalculatorAndTinmanButton() {
+        log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
+        driver.findElement(CALCULATOR_BUTTON).click();
+        driver.switchTo().frame(IFRAME_BUTTON);
+        log.info("Click {} in order to open the Tinman workout on the calculator page", TINMAN_BUTTON);
+        driver.findElement(TINMAN_BUTTON).click();
+        return new TinmanPage(driver);
+    }
+
+    @Step("Click workout calculator and then the Palladino button")
+    public PalladinoPage clickWorkoutCalculatorAndPalladinoButton() {
+        log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
+        driver.findElement(CALCULATOR_BUTTON).click();
+        driver.switchTo().frame(IFRAME_BUTTON);
+        log.info("Click {} in order to open the Palladino workout on the calculator page", PALLADINO_BUTTON);
+        driver.findElement(PALLADINO_BUTTON).click();
+        return new PalladinoPage(driver);
     }
 }

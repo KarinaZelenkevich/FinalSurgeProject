@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class TextArea {
 
-    private static final String inputTextArea = ("//textarea[@id='%s']") ; //label[contains(.,'%s')]/ancestor::div/textarea";
+    private static final String inputTextArea = ("//textarea[@id='%s']") ;
 
     WebDriver driver;
     String label;

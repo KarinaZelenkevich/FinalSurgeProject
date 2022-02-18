@@ -26,7 +26,7 @@ public class WorkoutCalculatorFactory {
                 .windSpeed("1")
                 .speedType("kph")
 
-                .distanceMillan("200m")
+                .distanceMillan("1000m")
                 .hoursMillan("1")
                 .minutesMillan("462")
                 .secondsMillan("552")
@@ -37,7 +37,7 @@ public class WorkoutCalculatorFactory {
                 .secondsTinman("5")
                 .gender(" Female")
 
-                .CP("10")
+                .CP("100")
                 .RWC("30")
                 .build();
     }

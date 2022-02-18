@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 @Getter
@@ -37,6 +38,7 @@ public class CalendarPage extends BasePage {
     public CalendarPage open() {
         log.info("Open Calendar Page {}", BASE_URL);
         driver.get(BASE_URL + "/Calendar.cshtml#");
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         return this;
     }
 

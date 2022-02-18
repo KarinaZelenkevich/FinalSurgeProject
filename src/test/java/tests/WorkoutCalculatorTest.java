@@ -43,5 +43,53 @@ public class WorkoutCalculatorTest extends BaseTest {
         Assert.assertTrue(message, "Error filling out the Hansons Workout Form");
     }
 
+    @Test(description = "Calculator McMillan test")
+    public void calculatorMcMillanTest() {
+
+        WorkoutCalculator workoutCalculator = WorkoutCalculatorFactory.get();
+
+        loginPage
+                .open()
+                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+        WorkoutCalculatorListPage
+                .open()
+                .clickWorkoutCalculatorAndMcMillanButton()
+                .createMcMillanCalculator(workoutCalculator);
+        boolean message = driver.findElement(By.xpath("//h4[contains(text(), 'McMillan Running Calculator')]")).isDisplayed();
+        Assert.assertTrue(message, "Error filling out the McMillan Workout Form");
+    }
+
+    @Test(description = "Calculator Tinman test")
+    public void calculatorTinmanTest() {
+
+        WorkoutCalculator workoutCalculator = WorkoutCalculatorFactory.get();
+
+        loginPage
+                .open()
+                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+        WorkoutCalculatorListPage
+                .open()
+                .clickWorkoutCalculatorAndTinmanButton()
+                .createTinmanCalculator(workoutCalculator);
+        boolean message = driver.findElement(By.xpath("//h4[contains(text(), 'Race Information')]")).isDisplayed();
+        Assert.assertTrue(message, "Error filling out the Tinman Workout Form");
+    }
+
+    @Test(description = "Calculator Palladino test")
+    public void calculatorPalladinoTest() {
+
+        WorkoutCalculator workoutCalculator = WorkoutCalculatorFactory.get();
+
+        loginPage
+                .open()
+                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+        WorkoutCalculatorListPage
+                .open()
+                .clickWorkoutCalculatorAndPalladinoButton()
+                .createPalladinoCalculator(workoutCalculator);
+        boolean message = driver.findElement(By.xpath("//h4[contains(text(), 'Interval Power Targets')]")).isDisplayed();
+        Assert.assertTrue(message, "Error filling out the Palladino Workout Form");
+    }
+
 
 }

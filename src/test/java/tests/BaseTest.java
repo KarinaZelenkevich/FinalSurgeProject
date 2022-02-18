@@ -23,6 +23,11 @@ public abstract class BaseTest {
     IntensityPage intensityPage;
     WorkoutCalculatorListPage workoutCalculatorListPage;
     HansonsPage hansonsPage;
+    McMillanPage mcMillanPage;
+    PalladinoPage palladinoPage;
+    TinmanPage tinmanPage;
+    DailyVitalsPage dailyVitalsPage;
+    ProfilePage profilePage;
 
 
     @BeforeMethod
@@ -42,6 +47,11 @@ public abstract class BaseTest {
         intensityPage = new IntensityPage(driver);
         workoutCalculatorListPage = new WorkoutCalculatorListPage(driver);
         hansonsPage = new HansonsPage(driver);
+        mcMillanPage = new McMillanPage(driver);
+        palladinoPage = new PalladinoPage(driver);
+        tinmanPage = new TinmanPage(driver);
+        dailyVitalsPage = new DailyVitalsPage(driver);
+        profilePage = new ProfilePage(driver);
 
 
     }

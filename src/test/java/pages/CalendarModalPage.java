@@ -33,22 +33,16 @@ public class CalendarModalPage extends BasePage {
         new Input(driver, "WorkoutTime").writeWorkout(calendar.getTimeOfDay());
         new DropDown(driver, "ActivityType").selectDropdown(calendar.getActivityType());
         new Input(driver, "Name").writeWorkout(calendar.getWorkoutName());
-        new TextArea(driver, "Workout Description").write(calendar.getWorkoutDescription());
-        new Input(driver, "PDistance").writeWorkout(calendar.getPlannedDistance());
-        new DropDown(driver, "DistType").selectDropdown(calendar.getDistType());
-        new Input(driver, "PDuration").writeWorkout(calendar.getPlannedDuration());
+        new TextArea(driver, "Desc").write(calendar.getDesc());
         new Input(driver, "Distance").writeWorkout(calendar.getDistance());
         new DropDown(driver, "DistType").selectDropdown(calendar.getDistType());
         new Input(driver, "Duration").writeWorkout(calendar.getDuration());
-        driver.findElement(WORKOUT_PACE).clear();
-        new Input(driver, "Pace").writeWorkout(calendar.getPace());
+        new Input(driver, "Pace").writeWorkout(calendar.getDistance());
         new DropDown(driver, "PaceType").selectDropdown(calendar.getPaceType());
         new DropDown(driver, "HowFeel").selectDropdown(calendar.getHowIFelt());
         new DropDown(driver, "PerEffort").selectDropdown(calendar.getPerceivedEffort());
-        new Input(driver, "Post Workout Notes/Results").writeWorkout(calendar.getPostWorkoutNotesResults());
-        new Input(driver, "OverallPlace").writeWorkout(calendar.getOverallPlace());
-        new Input(driver, "AgeGroupPlace").writeWorkout(calendar.getAgeGroupPlace());
-        return new CalendarDetailsPage(driver);
+        new TextArea(driver, "PostDesc").write(calendar.getPostDesc());
+        return clickAddWorkoutButton();
 
     }
 

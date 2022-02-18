@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 @Log4j2
 public class CalendarDetailsPage extends BasePage {
-    public static final By EVENT_DETAILS_LINK = By.xpath("//ul[@id='breadcrumbs']//a[@href='Calendar.cshtml']");
+    public static final By EVENT_DETAILS_LINK = By.xpath("//a[text()='Workout Details']");
 
     public CalendarDetailsPage(WebDriver driver) {
         super(driver);

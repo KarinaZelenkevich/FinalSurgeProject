@@ -1,8 +1,12 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
 
 import static org.testng.Assert.assertTrue;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class LoginTest extends BaseTest {
 
@@ -18,4 +22,32 @@ public class LoginTest extends BaseTest {
 
     }
 
+    @Test
+    public void checkLogInWithInvalidEmail() {
+        loginPage
+                .open()
+                .login("blablablablablabla", "KarinaKarina12");
+
+        String error = LoginPage.getErrorMessage();
+        assertEquals(error,
+                "Please enter a valid email address.",
+                "Please enter a valid email address.");
+
+    }
+
+    @Description("Logout test")
+    @Test
+    public void logoutTest() {
+        loginPage
+                .open()
+                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+        homePage
+                .open()
+                .clickLogoutButton();
+        String alert = HomePage.getLogoutMessage();
+        assertEquals(alert,
+                "You have been successfully logged out of the system.",
+                "You have been successfully logged out of the system.");
+
+    }
 }
