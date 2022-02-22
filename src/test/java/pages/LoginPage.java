@@ -13,7 +13,6 @@ public class LoginPage extends BasePage {
     public static final By ERROR_MESSAGE = By.xpath("//label[@class='error']");
 
 
-
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -47,6 +46,5 @@ public class LoginPage extends BasePage {
         log.debug("Completing the login method on the LoginPage");
         return new HomePage(driver);
     }
-
 
 }

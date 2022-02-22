@@ -14,7 +14,7 @@ public final class PropertyReader {
     }
 
     private static String getCorrectPath() {
-        if (propertiesPath.charAt(0) != '/')
+        if (propertiesPath.charAt(0) != '/' )
             propertiesPath = "/" + propertiesPath;
         return propertiesPath;
     }
@@ -50,7 +50,7 @@ public final class PropertyReader {
         return readProperties();
     }
 
-    public static String getProperty (String propertyName) {
+    public static String getProperty(String propertyName) {
         return loadProperties().getProperty(propertyName);
     }
 }

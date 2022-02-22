@@ -35,6 +35,19 @@ public class LoginTest extends BaseTest {
 
     }
 
+    @Test
+    public void checkLogInWithInvalidPassword() {
+        loginPage
+                .open()
+                .login("blablablablablabla@maillinator.com", "");
+
+        String error = LoginPage.getErrorMessage();
+        assertEquals(error,
+                "Please enter a password.",
+                "Please enter a password.");
+
+    }
+
     @Description("Logout test")
     @Test
     public void logoutTest() {

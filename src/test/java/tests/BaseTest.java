@@ -26,8 +26,14 @@ public abstract class BaseTest {
     McMillanPage mcMillanPage;
     PalladinoPage palladinoPage;
     TinmanPage tinmanPage;
-    DailyVitalsPage dailyVitalsPage;
     ProfilePage profilePage;
+    ProfileModalPage profileModalPage;
+    CaloricNeedsPage caloricNeedsPage;
+    WorkoutPage workoutPage;
+    PrintPage printPage;
+    PrintWorkout printWorkout;
+    WorkoutFullAddPage workoutFullAddPage;
+    WorkoutDetailsPage workoutDetailsPage;
 
 
     @BeforeMethod
@@ -50,9 +56,14 @@ public abstract class BaseTest {
         mcMillanPage = new McMillanPage(driver);
         palladinoPage = new PalladinoPage(driver);
         tinmanPage = new TinmanPage(driver);
-        dailyVitalsPage = new DailyVitalsPage(driver);
         profilePage = new ProfilePage(driver);
-
+        profileModalPage = new ProfileModalPage(driver);
+        caloricNeedsPage = new CaloricNeedsPage(driver);
+        workoutPage = new WorkoutPage(driver);
+        printPage = new PrintPage(driver);
+        printWorkout = new PrintWorkout(driver);
+        workoutFullAddPage = new WorkoutFullAddPage(driver);
+        workoutDetailsPage = new WorkoutDetailsPage(driver);
 
     }
 
