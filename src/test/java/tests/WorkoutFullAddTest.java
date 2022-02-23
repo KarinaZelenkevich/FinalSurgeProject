@@ -12,7 +12,7 @@ public class WorkoutFullAddTest extends BaseTest {
     public void activitiesPageShouldBeOpened() {
         loginPage
                 .open()
-                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+                .login(email, password);
         calendarPage
                 .open();
         workoutFullAddPage
@@ -24,7 +24,7 @@ public class WorkoutFullAddTest extends BaseTest {
     public void workoutShouldBeAddedWithFullAdd() {
         loginPage
                 .open()
-                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+                .login(email, password);
         calendarPage
                 .open();
         WorkoutFullAdd workout = WorkoutAddFactory.getFullAdd();

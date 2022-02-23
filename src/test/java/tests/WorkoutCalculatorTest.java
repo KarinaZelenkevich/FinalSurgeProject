@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.WorkoutCalculatorListPage;
+import utils.AllureUtils;
 
 @Log4j2
 public class WorkoutCalculatorTest extends BaseTest {
@@ -18,13 +19,14 @@ public class WorkoutCalculatorTest extends BaseTest {
 
         loginPage
                 .open()
-                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+                .login(email, password);
         WorkoutCalculatorListPage
                 .open()
                 .clickWorkoutCalculator()
                 .createIntensityCalculator(workoutCalculator);
         boolean message = driver.findElement(By.xpath("//h4[contains(text(), 'Your Workout Paces')]")).isDisplayed();
         Assert.assertTrue(message, "Error filling out the Intensity Workout Form");
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Calculator Hansons test")
@@ -34,13 +36,14 @@ public class WorkoutCalculatorTest extends BaseTest {
 
         loginPage
                 .open()
-                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+                .login(email, password);
         WorkoutCalculatorListPage
                 .open()
                 .clickWorkoutCalculatorAndHansonsButton()
                 .createHansonsCalculator(workoutCalculator);
         boolean message = driver.findElement(By.xpath("//h4[contains(text(), 'Recent Race Information')]")).isDisplayed();
         Assert.assertTrue(message, "Error filling out the Hansons Workout Form");
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Calculator McMillan test")
@@ -50,13 +53,14 @@ public class WorkoutCalculatorTest extends BaseTest {
 
         loginPage
                 .open()
-                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+                .login(email, password);
         WorkoutCalculatorListPage
                 .open()
                 .clickWorkoutCalculatorAndMcMillanButton()
                 .createMcMillanCalculator(workoutCalculator);
         boolean message = driver.findElement(By.xpath("//h4[contains(text(), 'McMillan Running Calculator')]")).isDisplayed();
         Assert.assertTrue(message, "Error filling out the McMillan Workout Form");
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Calculator Tinman test")
@@ -66,13 +70,14 @@ public class WorkoutCalculatorTest extends BaseTest {
 
         loginPage
                 .open()
-                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+                .login(email, password);
         WorkoutCalculatorListPage
                 .open()
                 .clickWorkoutCalculatorAndTinmanButton()
                 .createTinmanCalculator(workoutCalculator);
         boolean message = driver.findElement(By.xpath("//h4[contains(text(), 'Race Information')]")).isDisplayed();
         Assert.assertTrue(message, "Error filling out the Tinman Workout Form");
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Calculator Palladino test")
@@ -82,7 +87,7 @@ public class WorkoutCalculatorTest extends BaseTest {
 
         loginPage
                 .open()
-                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+                .login(email, password);
         WorkoutCalculatorListPage
                 .open()
                 .clickWorkoutCalculatorAndPalladinoButton()
@@ -90,6 +95,4 @@ public class WorkoutCalculatorTest extends BaseTest {
         boolean message = driver.findElement(By.xpath("//h4[contains(text(), 'Interval Power Targets')]")).isDisplayed();
         Assert.assertTrue(message, "Error filling out the Palladino Workout Form");
     }
-
-
 }

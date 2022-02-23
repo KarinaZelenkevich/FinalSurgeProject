@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public final class PropertyReader {
-
     private static String propertiesPath = "/config.properties";
     private static volatile Properties properties;
     private static InputStream inputStream;
@@ -14,7 +13,7 @@ public final class PropertyReader {
     }
 
     private static String getCorrectPath() {
-        if (propertiesPath.charAt(0) != '/' )
+        if (propertiesPath.charAt(0) != '/')
             propertiesPath = "/" + propertiesPath;
         return propertiesPath;
     }
@@ -52,5 +51,9 @@ public final class PropertyReader {
 
     public static String getProperty(String propertyName) {
         return loadProperties().getProperty(propertyName);
+    }
+
+    public static String getProperty(String envVariable, String propertyName) {
+        return System.getenv().getOrDefault(envVariable, getProperty(propertyName));
     }
 }

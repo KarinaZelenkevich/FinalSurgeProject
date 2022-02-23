@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" name="Test suite" parallel="tests">
+<suite name="Regression Browsers " thread-count="3" parallel="tests">
     <listeners>
         <listener class-name="tests.base.AnnotationTransformer"/>
     </listeners>
     <test name="test 1">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.LoginTest"/>
+            <class name="tests.ProfileTest"/>
         </classes>
     </test>
     <test name="test 2">
+        <parameter name="browser" value="edge"/>
         <classes>
-            <class name="tests.ProfileTest"/>
+            <class name="tests.PrintTest"/>
+            <class name="tests.WorkoutFullAddTest"/>
         </classes>
     </test>
     <test name="test 3">
         <classes>
             <class name="tests.WorkoutCalculatorTest"/>
+            <class name="tests.CalendarTest"/>
         </classes>
     </test>
 </suite>

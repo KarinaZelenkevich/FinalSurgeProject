@@ -15,7 +15,7 @@ public class CalendarTest extends BaseTest {
     public void CalendarQuickAddWorkoutTest() throws InterruptedException {
         log.info("Test start ContactTest");
         loginPage.open();
-        loginPage.login("blablablablablabla@maillinator.com", "KarinaKarina12");
+        loginPage.login(email, password);
         calendarPage
                 .open();
         Assert.assertTrue(calendarPage.isPageOpen(), "Calendar page wasn't opened");
@@ -26,7 +26,7 @@ public class CalendarTest extends BaseTest {
     public void workoutShouldBeDragAndDropped() {
         loginPage
                 .open()
-                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+                .login(email, password);
         calendarPage
                 .open();
         WorkoutQuickAdd workout = WorkoutAddFactory.get();
