@@ -28,8 +28,8 @@ public class PalladinoPage extends BasePage {
     @Step("Filling in the form calculator Palladino workout")
     public WorkoutCalculatorDetailsPage createPalladinoCalculator(WorkoutCalculator workoutCalculator) {
         log.info("Filling in the form calculator Palladino workout");
-        new Input(driver, "CP").writeWorkout(workoutCalculator.getCP());
-        new Input(driver, "RWC").writeWorkout(workoutCalculator.getRWC());
+        new Input(driver, "CP").write(workoutCalculator.getCP());
+        new Input(driver, "RWC").write(workoutCalculator.getRWC());
         save();
         return new WorkoutCalculatorDetailsPage(driver);
     }

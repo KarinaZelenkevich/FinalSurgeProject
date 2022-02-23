@@ -14,7 +14,6 @@ public class CalendarModalPage extends BasePage {
     public static final By ADD_WORKOUT_BUTTON = By.id("saveButton");
     public static final By MODAL_TITLE = By.id("WorkoutAddHeader");
     public static final By WORKOUT_DATE = By.id("WorkoutDate");
-    public static final By WORKOUT_PACE = By.id("Pace");
 
 
     public CalendarModalPage(WebDriver driver) {
@@ -29,15 +28,15 @@ public class CalendarModalPage extends BasePage {
     public CalendarDetailsPage addSportsEvent(Calendar calendar) {
         log.info("Filling in the form quick add workout");
         driver.findElement(WORKOUT_DATE).clear();
-        new Input(driver, "WorkoutDate").writeWorkout(calendar.getWorkoutDate());
-        new Input(driver, "WorkoutTime").writeWorkout(calendar.getTimeOfDay());
+        new Input(driver, "WorkoutDate").write(calendar.getWorkoutDate());
+        new Input(driver, "WorkoutTime").write(calendar.getTimeOfDay());
         new DropDown(driver, "ActivityType").selectDropdown(calendar.getActivityType());
-        new Input(driver, "Name").writeWorkout(calendar.getWorkoutName());
+        new Input(driver, "Name").write(calendar.getWorkoutName());
         new TextArea(driver, "Desc").write(calendar.getDesc());
-        new Input(driver, "Distance").writeWorkout(calendar.getDistance());
+        new Input(driver, "Distance").write(calendar.getDistance());
         new DropDown(driver, "DistType").selectDropdown(calendar.getDistType());
-        new Input(driver, "Duration").writeWorkout(calendar.getDuration());
-        new Input(driver, "Pace").writeWorkout(calendar.getDistance());
+        new Input(driver, "Duration").write(calendar.getDuration());
+        new Input(driver, "Pace").write(calendar.getDistance());
         new DropDown(driver, "PaceType").selectDropdown(calendar.getPaceType());
         new DropDown(driver, "HowFeel").selectDropdown(calendar.getHowIFelt());
         new DropDown(driver, "PerEffort").selectDropdown(calendar.getPerceivedEffort());

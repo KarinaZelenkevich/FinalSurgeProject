@@ -25,9 +25,9 @@ public class McMillanPage extends BasePage {
     public WorkoutCalculatorDetailsPage createMcMillanCalculator(WorkoutCalculator workoutCalculator) {
         log.info("Filling in the form calculator McMillan workout");
         new DropDown(driver, "distance").selectDropdown(workoutCalculator.getDistanceMillan());
-        new Input(driver, "TimeHH").writeWorkout(workoutCalculator.getHoursMillan());
-        new Input(driver, "TimeMM").writeWorkout(workoutCalculator.getMinutesMillan());
-        new Input(driver, "TimeSS").writeWorkout(workoutCalculator.getSecondsMillan());
+        new Input(driver, "TimeHH").write(workoutCalculator.getHoursMillan());
+        new Input(driver, "TimeMM").write(workoutCalculator.getMinutesMillan());
+        new Input(driver, "TimeSS").write(workoutCalculator.getSecondsMillan());
         save();
         return new WorkoutCalculatorDetailsPage(driver);
     }

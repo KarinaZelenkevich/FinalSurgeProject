@@ -29,14 +29,14 @@ public class HansonsPage extends BasePage {
     public WorkoutCalculatorDetailsPage createHansonsCalculator(WorkoutCalculator workoutCalculator) {
         log.info("Filling in the form calculator Hansons workout");
         new DropDown(driver, "RaceDist").selectDropdown(workoutCalculator.getRaceDist());
-        new Input(driver, "Distance").writeWorkout(workoutCalculator.getDistanceHansons());
-        new Input(driver, "TimeHH").writeWorkout(workoutCalculator.getHoursHansons());
-        new Input(driver, "TimeMM").writeWorkout(workoutCalculator.getMinutesHansons());
-        new Input(driver, "TimeSS").writeWorkout(workoutCalculator.getSecondsHansons());
-        new Input(driver, "Temp").writeWorkout(workoutCalculator.getTemperature());
+        new Input(driver, "Distance").write(workoutCalculator.getDistanceHansons());
+        new Input(driver, "TimeHH").write(workoutCalculator.getHoursHansons());
+        new Input(driver, "TimeMM").write(workoutCalculator.getMinutesHansons());
+        new Input(driver, "TimeSS").write(workoutCalculator.getSecondsHansons());
+        new Input(driver, "Temp").write(workoutCalculator.getTemperature());
         new DropDown(driver, "TempType").selectDropdown(workoutCalculator.getTempType());
-        new Input(driver, "Humid").writeWorkout(workoutCalculator.getHumidity());
-        new Input(driver, "Wind").writeWorkout(workoutCalculator.getWindSpeed());
+        new Input(driver, "Humid").write(workoutCalculator.getHumidity());
+        new Input(driver, "Wind").write(workoutCalculator.getWindSpeed());
         new DropDown(driver, "SpeedType").selectDropdown(workoutCalculator.getSpeedType());
         save();
         return new WorkoutCalculatorDetailsPage(driver);

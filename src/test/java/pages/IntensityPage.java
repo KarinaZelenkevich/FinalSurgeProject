@@ -27,9 +27,9 @@ public class IntensityPage extends BasePage {
     @Step("Filling in the form calculator Intensity workout")
     public WorkoutCalculatorDetailsPage createIntensityCalculator(WorkoutCalculator workoutCalculator) {
         log.info("Filling in the form calculator Intensity workout");
-        new Input(driver, "TimeHH").writeWorkout(workoutCalculator.getHoursIntensity());
-        new Input(driver, "TimeMM").writeWorkout(workoutCalculator.getMinutesIntensity());
-        new Input(driver, "TimeSS").writeWorkout(workoutCalculator.getSecondsIntensity());
+        new Input(driver, "TimeHH").write(workoutCalculator.getHoursIntensity());
+        new Input(driver, "TimeMM").write(workoutCalculator.getMinutesIntensity());
+        new Input(driver, "TimeSS").write(workoutCalculator.getSecondsIntensity());
         new RadioButton(driver, " 10Km").selectRadioButton(workoutCalculator.getSelectEvent());
         save();
         return new WorkoutCalculatorDetailsPage(driver);

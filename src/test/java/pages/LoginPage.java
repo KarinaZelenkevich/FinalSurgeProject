@@ -13,7 +13,6 @@ public class LoginPage extends BasePage {
     public static final By ERROR_MESSAGE = By.xpath("//label[@class='error']");
 
 
-
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -39,14 +38,13 @@ public class LoginPage extends BasePage {
         return driver.findElement(ERROR_MESSAGE).getText();
     }
 
-    public HomePage login(String userEmail, String password) {
+    public HomePage login(String email, String password) {
         log.debug("Starting the login method on the LoginPage");
-        driver.findElement(EMAIL_INPUT).sendKeys(userEmail);
+        driver.findElement(EMAIL_INPUT).sendKeys(email);
         driver.findElement(PASSWORD).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
         log.debug("Completing the login method on the LoginPage");
         return new HomePage(driver);
     }
-
 
 }

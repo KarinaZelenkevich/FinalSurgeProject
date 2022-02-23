@@ -1,15 +1,15 @@
 package tests;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 import pages.*;
+import tests.base.TestListener;
 
 import java.util.concurrent.TimeUnit;
 
+@Listeners(TestListener.class)
 public abstract class BaseTest {
 
     WebDriver driver;
@@ -26,13 +26,23 @@ public abstract class BaseTest {
     McMillanPage mcMillanPage;
     PalladinoPage palladinoPage;
     TinmanPage tinmanPage;
-    DailyVitalsPage dailyVitalsPage;
     ProfilePage profilePage;
+    ProfileModalPage profileModalPage;
+    CaloricNeedsPage caloricNeedsPage;
+    WorkoutPage workoutPage;
+    PrintPage printPage;
+    PrintWorkout printWorkout;
+    WorkoutFullAddPage workoutFullAddPage;
+    WorkoutDetailsPage workoutDetailsPage;
+    protected String baseUrl = utils.PropertyReader.getProperty("FINAL_SURGE_URL", "finalsurge.baseUrl");
+    protected String email = utils.PropertyReader.getProperty("FINAL_SURGE_EMAIL", "finalsurge.email");
+    protected String password = utils.PropertyReader.getProperty("FINAL_SURGE_PASSWORD", "finalsurge.password");
 
-
+    @Parameters({"browser"})
     @BeforeMethod
-    public void setUp() {
+    public void setUp(@Optional("chrome") String browser) {
         WebDriverManager.chromedriver().setup();
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
@@ -50,9 +60,14 @@ public abstract class BaseTest {
         mcMillanPage = new McMillanPage(driver);
         palladinoPage = new PalladinoPage(driver);
         tinmanPage = new TinmanPage(driver);
-        dailyVitalsPage = new DailyVitalsPage(driver);
         profilePage = new ProfilePage(driver);
-
+        profileModalPage = new ProfileModalPage(driver);
+        caloricNeedsPage = new CaloricNeedsPage(driver);
+        workoutPage = new WorkoutPage(driver);
+        printPage = new PrintPage(driver);
+        printWorkout = new PrintWorkout(driver);
+        workoutFullAddPage = new WorkoutFullAddPage(driver);
+        workoutDetailsPage = new WorkoutDetailsPage(driver);
 
     }
 

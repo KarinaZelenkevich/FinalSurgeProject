@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 @Log4j2
-public  class WorkoutCalculatorListPage extends BasePage {
+public class WorkoutCalculatorListPage extends BasePage {
 
     public static final By TITLE = By.id("dpMonth");
     public static final By CALCULATOR_BUTTON = By.xpath("//*[@class='icsw16-stop-watch']");
@@ -49,6 +49,7 @@ public  class WorkoutCalculatorListPage extends BasePage {
         driver.findElement(HANSONS_BUTTON).click();
         return new HansonsPage(driver);
     }
+
     @Step("Click workout calculator and then the McMillan button")
     public McMillanPage clickWorkoutCalculatorAndMcMillanButton() {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
