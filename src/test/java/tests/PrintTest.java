@@ -5,7 +5,7 @@ import models.PrintWorkouts;
 import models.PrintWorkoutsFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.AllureUtils;
+
 
 
 public class PrintTest extends BaseTest {
@@ -23,6 +23,5 @@ public class PrintTest extends BaseTest {
         printWorkout
                 .fillForm(periodForPrint);
         Assert.assertTrue(printPage.isPageOpen(), "Print page wasn't opened");
-        AllureUtils.takeScreenshot(driver);
     }
 }

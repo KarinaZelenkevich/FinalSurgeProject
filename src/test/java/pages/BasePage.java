@@ -1,19 +1,20 @@
 package pages;
 
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
+import models.Profile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
+@Log4j2
 public abstract class BasePage {
     public static final String BASE_URL = "https://log.finalsurge.com/login.cshtml?Assoc=&page_redirect=";
-//    public static final By NEW_BUTTON = By.xpath("//a[@title='New']");
-//    public static final By SAVE_BUTTON = By.xpath("//button[@title='Save']");
-//    public static final By MODAL_TITLE = By.xpath("//div[@class='modal-container slds-modal__container']//h2");
-
 
     protected static WebDriver driver;
-    WebDriverWait wait;
+    static WebDriverWait wait;
 
 
     public BasePage(WebDriver driver) {
@@ -32,4 +33,14 @@ public abstract class BasePage {
         }
     }
 
+    @Step("Validate input")
+    public void validateInput(String label, String expected) {
+        String locator = "//div[contains(@id, 'EditProfile')]//*[contains(text(),'%s')]/ancestor::p";
+        log.info("Validating input with label: " + label);
+        Assert.assertEquals(
+                driver.findElement(By.xpath(String.format(locator, label))).getText(),
+                expected,
+                "Input text is not correct");
+
+    }
 }
