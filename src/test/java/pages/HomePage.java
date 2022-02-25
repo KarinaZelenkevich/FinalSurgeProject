@@ -11,6 +11,7 @@ public class HomePage extends BasePage {
     private static final By LOGOUT_LINK = By.xpath("//a[text()='Logout']");
     private static final By LOGOUT_MESSAGE = By.cssSelector("[class^='alert']");
     private static final By PRINT_WORKOUTS_LINK = By.xpath("//nav//li//i[@class='icsw16-printer']/..");
+    private static final By REPORTS_STATISTICS_LINK = By.xpath("//a/i[@class='icsw16-graph']");
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -42,6 +43,12 @@ public class HomePage extends BasePage {
     public void clickPrintWorkouts() {
         log.info("clicking 'Print Workouts' link");
         driver.findElement(PRINT_WORKOUTS_LINK).click();
+    }
+
+    @Step("Clicking 'Reports & Statistics' link")
+    public void clickReportsAndStatistics() {
+        log.info("clicking 'Reports & Statistics' link");
+        driver.findElement(REPORTS_STATISTICS_LINK).click();
     }
 
 }

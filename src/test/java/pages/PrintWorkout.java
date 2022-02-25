@@ -37,7 +37,6 @@ public class PrintWorkout extends BasePage {
         new Input(driver, "Print Starting Date").writeInPrintFormStartDate(printWorkouts.getStartDate());
         new Input(driver, "Print Ending Date").writeInPrintFormEndingDate(printWorkouts.getEndDate());
         clickPrintWorkoutsButton();
-        driver.switchTo().defaultContent();
     }
 
 
