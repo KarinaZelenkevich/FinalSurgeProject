@@ -19,13 +19,7 @@ public class ProfilePage extends BasePage {
     public static final By SAVE_EDIT_PROFILE = By.id("saveButtonProfile");
     public static final By DELETE_PHOTO_BUTTON = By.id("del-pic");
     public static final By SUBMIT_DELETE_PHOTO = By.xpath("//div[@class = 'modal-footer']//a[contains(text(),'OK')]");
-    String nameId = "fname";
-    String lastName = "lname";
-    String bdayId = "BDay";
-    String weightId = "Weight";
-    String country = "Country";
-    String cityId = "City";
-    String zipId = "Zip";
+
 
     public ProfilePage(WebDriver driver) {
         super(driver);
@@ -56,23 +50,12 @@ public class ProfilePage extends BasePage {
         return new ProfilePage(driver);
     }
 
-    @Step("Clean profile fields")
-    public ProfilePage clean() {
-        driver.findElement(By.id(nameId)).clear();
-        driver.findElement(By.id(lastName)).clear();
-        driver.findElement(By.id(country)).clear();
-        driver.findElement(By.id(bdayId)).clear();
-        driver.findElement(By.id(weightId)).clear();
-        driver.findElement(By.id(cityId)).clear();
-        driver.findElement(By.id(zipId)).clear();
-        return new ProfilePage(driver);
-    }
-
     @Step("Save photo")
     public ProfilePage savePhoto() throws InterruptedException {
-        driver.findElement(By.id("NextStep")).click();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.findElement(By.id("NextStep")).click();
+        driver.findElement(By.xpath("//a[@id='NextStep']")).click();
+        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//a[@id='NextStep']")).click();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return new ProfilePage(driver);
     }
@@ -83,5 +66,17 @@ public class ProfilePage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(SUBMIT_DELETE_PHOTO));
         driver.findElement(SUBMIT_DELETE_PHOTO).click();
         return new ProfilePage(driver);
+    }
+
+
+    @Step("Validate data on profile page")
+    public void validateInput(Profile profile) {
+        log.info("Validating data on profile page");
+        validateInput("Name:", String.format("Name: " + profile.getName() + " " + profile.getLastName()));
+//        validateInput("Birthday:", String.format("Birthday: " + profile.getBirthday()));
+//        validateInput("Weight:", String.format("Weight: %s %s", profile.getWeight(), profile.getWeightMeasure()));
+        validateInput("Country:", String.format("Country: " + profile.getCountry()));
+        validateInput("City:", String.format("City: " + profile.getCity()));
+        validateInput("Zip/Postal Code:", String.format("Zip/Postal Code: " + profile.getZip()));
     }
 }

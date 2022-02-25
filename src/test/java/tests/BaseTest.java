@@ -1,4 +1,5 @@
 package tests;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,12 +29,14 @@ public abstract class BaseTest {
     TinmanPage tinmanPage;
     ProfilePage profilePage;
     ProfileModalPage profileModalPage;
-    CaloricNeedsPage caloricNeedsPage;
     WorkoutPage workoutPage;
     PrintPage printPage;
     PrintWorkout printWorkout;
     WorkoutFullAddPage workoutFullAddPage;
     WorkoutDetailsPage workoutDetailsPage;
+    CaloricNeedsModalPage caloricNeedsModalPage;
+    PaceCalculatorModalPage paceCalculatorModalPage;
+    WorkoutReportsModalPage workoutReportsModalPage;
     protected String baseUrl = utils.PropertyReader.getProperty("FINAL_SURGE_URL", "finalsurge.baseUrl");
     protected String email = utils.PropertyReader.getProperty("FINAL_SURGE_EMAIL", "finalsurge.email");
     protected String password = utils.PropertyReader.getProperty("FINAL_SURGE_PASSWORD", "finalsurge.password");
@@ -61,13 +64,14 @@ public abstract class BaseTest {
         tinmanPage = new TinmanPage(driver);
         profilePage = new ProfilePage(driver);
         profileModalPage = new ProfileModalPage(driver);
-        caloricNeedsPage = new CaloricNeedsPage(driver);
         workoutPage = new WorkoutPage(driver);
         printPage = new PrintPage(driver);
         printWorkout = new PrintWorkout(driver);
         workoutFullAddPage = new WorkoutFullAddPage(driver);
         workoutDetailsPage = new WorkoutDetailsPage(driver);
-
+        caloricNeedsModalPage = new CaloricNeedsModalPage(driver);
+        paceCalculatorModalPage = new PaceCalculatorModalPage(driver);
+        workoutReportsModalPage = new WorkoutReportsModalPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

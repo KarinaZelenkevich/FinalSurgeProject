@@ -20,7 +20,7 @@ public class LoginTest extends BaseTest {
                 .open()
                 .isPageOpen();
         AllureUtils.takeScreenshot(driver);
-        assertTrue(isHomePageOpened, "Страница HomePage не открылась");
+        assertTrue(isHomePageOpened, "HomePage wasn't opened");
         AllureUtils.takeScreenshot(driver);
 
     }

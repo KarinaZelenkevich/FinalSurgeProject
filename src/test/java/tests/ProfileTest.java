@@ -29,9 +29,9 @@ public class ProfileTest extends BaseTest {
         Profile profile = ProfileFactory.getFillingProfileForm();
         profileModalPage
                 .editProfile(profile)
-                .saveProfileChanges();
+                .saveProfileChanges()
+                .validateInput(profile);
     }
-        //TODO assert
 
     @Test(description = "Add user photo to the profile")
     public void profilePhotoShouldBeAddedAndDeleted() throws InterruptedException {
@@ -40,8 +40,7 @@ public class ProfileTest extends BaseTest {
                 .login(email, password);
         profilePage
                 .openProfilePage()
-                .openEditProfileForm()
-                .clean();
+                .openEditProfileForm();
         profileModalPage
                 .uploadPhoto("src/test/resources/c1f15e1s-1920.jpg")
                 .savePhoto()
