@@ -5,7 +5,6 @@ import models.CaloricNeeds;
 import models.CaloricNeedsFactory;
 import models.PaceCalculator;
 import models.PaceCalculatorFactory;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CaloricNeedsModalPage;
