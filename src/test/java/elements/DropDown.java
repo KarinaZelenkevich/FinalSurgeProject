@@ -13,6 +13,7 @@ public class DropDown {
 
     private static final String DROPDOWN_IN_PROFILE_FORM = "//input[@id='%s']";
     private static final String DROPDOWN_IN_PROFILE_FORM_FOR_COUNTRY = "//select[@id='%s']";
+    private static final String DROPDOWN_IN_PACE_CALCULATOR = "//select[@id='DistType']/option[text()='%s']";
 
     WebDriver driver;
     String label;
@@ -31,5 +32,8 @@ public class DropDown {
         System.out.println(String.format("Writing text '%s' into DropDown with label %s", text, label));
         driver.findElement(By.xpath(String.format(DROPDOWN_IN_PROFILE_FORM_FOR_COUNTRY, label))).sendKeys(text);
     }
-
+    public void selectDropdownInPaceCalculator(String text) {
+        System.out.println(String.format("Writing text '%s' into DropDown with label %s", text, label));
+        driver.findElement(By.xpath(String.format(DROPDOWN_IN_PACE_CALCULATOR, label))).sendKeys(text);
+    }
 }

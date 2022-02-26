@@ -40,7 +40,7 @@ public class PaceCalculatorModalPage extends BasePage {
 
     @Step("Filling 'Pace Calculator' form")
     public static PaceCalculatorModalPage fillInForm(PaceCalculator paceCalculator) {
-        new DropDown(driver, "Kilometers").selectDropdown(paceCalculator.getDistance());
+        new DropDown(driver, "km").selectDropdownInPaceCalculator(paceCalculator.getDistance());
         new Input(driver, "RunDist").write(paceCalculator.getDistance());
         new Input(driver, "TimeHH").write(paceCalculator.getHours());
         new Input(driver, "TimeMM").write(paceCalculator.getMinutes());
