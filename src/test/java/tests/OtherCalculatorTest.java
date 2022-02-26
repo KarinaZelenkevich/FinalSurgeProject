@@ -9,7 +9,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CaloricNeedsModalPage;
 import pages.PaceCalculatorModalPage;
-import utils.AllureUtils;
 
 
 public class OtherCalculatorTest extends BaseTest {

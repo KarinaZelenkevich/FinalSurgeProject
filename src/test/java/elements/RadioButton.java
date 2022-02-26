@@ -8,7 +8,7 @@ public class RadioButton {
     WebDriver driver;
     String label;
     String RADIO_BUTTON = "//label[contains(.,'%s')]/input";
-    String RADIO_BUTTON_IN_PROFILE_FORM = "//div/label[text()='%s']";
+    String RADIO_BUTTON_IN_PROFILE_FORM = "//div/label/input[@id='%s']";
     String RADIO_BUTTON_IN_FULL_ADD = "//label//span[text()='%s']/..";
 
     public RadioButton(WebDriver driver, String label) {

@@ -13,11 +13,9 @@ public class ProfileTest extends BaseTest {
     public void editProfilePageShouldBeOpened() {
         loginPage
                 .open()
-                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+                .login(email, password);
         profilePage.openProfilePage();
-
         Assert.assertTrue(profilePage.isPageOpen(), "Profile page wasn't opened");
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Fill in User profile form")
@@ -44,8 +42,7 @@ public class ProfileTest extends BaseTest {
                 .openProfilePage()
                 .openEditProfileForm();
         profileModalPage
-                .uploadPhoto("src/test/resources/c1f15e1s-1920.jpg");
-        profilePage
+                .uploadPhoto("src/test/resources/c1f15e1s-1920.jpg")
                 .savePhoto()
                 .saveProfileChanges()
                 .openEditProfileForm()

@@ -6,9 +6,11 @@ import models.Profile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import javax.swing.*;
+import java.io.File;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -56,10 +58,10 @@ public class ProfilePage extends BasePage {
 
     @Step("Save photo")
     public ProfilePage savePhoto() throws InterruptedException {
-        driver.findElement(By.xpath("//a[@id='NextStep']")).click();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//a[@id='NextStep']")).click();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.findElement(By.id("NextStep")).click();
+        Thread.sleep(7000);
+        driver.findElement(By.id("NextStep")).click();
+        Thread.sleep(7000);
         return new ProfilePage(driver);
     }
 
@@ -76,8 +78,7 @@ public class ProfilePage extends BasePage {
     public void validateInput(Profile profile) {
         log.info("Validating data on profile page");
         validateInput("Name:", String.format("Name: " + profile.getName() + " " + profile.getLastName()));
-//        validateInput("Birthday:", String.format("Birthday: " + profile.getBirthday()));
-//        validateInput("Weight:", String.format("Weight: %s %s", profile.getWeight(), profile.getWeightMeasure()));
+        validateInput("Birthday:", String.format("Birthday: " + profile.getBirthday()));
         validateInput("Country:", String.format("Country: " + profile.getCountry()));
         validateInput("City:", String.format("City: " + profile.getCity()));
         validateInput("Zip/Postal Code:", String.format("Zip/Postal Code: " + profile.getZip()));

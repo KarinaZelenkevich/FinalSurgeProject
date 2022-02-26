@@ -10,7 +10,7 @@ public class ProfileFactory {
                 .name(faker.funnyName().name())
                 .lastName(faker.funnyName().name())
                 .gender("Female")
-                .birthday(faker.date().birthday().toString())
+                .birthday("8/12/1997")
                 .weight("60")
                 .country("Belarus")
                 .state("Minskaya voblasts")
