@@ -94,5 +94,6 @@ public class WorkoutCalculatorTest extends BaseTest {
                 .createPalladinoCalculator(workoutCalculator);
         boolean message = driver.findElement(By.xpath("//h4[contains(text(), 'Interval Power Targets')]")).isDisplayed();
         Assert.assertTrue(message, "Error filling out the Palladino Workout Form");
+        AllureUtils.takeScreenshot(driver);
     }
 }

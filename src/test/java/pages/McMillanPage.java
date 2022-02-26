@@ -32,6 +32,7 @@ public class McMillanPage extends BasePage {
         return new WorkoutCalculatorDetailsPage(driver);
     }
 
+
     public void save() {
         driver.findElement(SAVE_BUTTON).click();
     }

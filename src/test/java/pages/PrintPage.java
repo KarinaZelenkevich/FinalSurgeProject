@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,12 +15,13 @@ public class PrintPage extends BasePage {
         super(driver);
     }
 
+    @Step("Check if the PrintDetails page is open")
     @Override
     public boolean isPageOpen() {
         return isExist(PRINT_DETAILS);
 
     }
-
+    @Step("Open 'PrintWorkouts' page")
     public PrintPage open() {
         driver.get(BASE_URL + "/PrintWorkouts.cshtml");
         return this;

@@ -23,6 +23,7 @@ public class CalendarListPage extends BasePage {
     }
 
 
+    @Step("Open calendar page")
     @Description("Open calendar page")
     public CalendarListPage open() {
         log.info("Open Calendar Page {}", BASE_URL);

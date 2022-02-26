@@ -48,6 +48,7 @@ public class WorkoutReportsModalPage extends BasePage {
     }
 
 
+    @Step("Open 'WorkourReports' page")
     public BasePage open() {
         driver.get(BASE_URL + "/WorkoutReport.cshtml");
         return this;

@@ -35,7 +35,7 @@ public class TinmanPage extends BasePage {
         save();
         return new WorkoutCalculatorDetailsPage(driver);
     }
-
+    @Step("Clock on 'Save' button")
     public void save() {
         driver.findElement(SAVE_BUTTON).click();
     }
