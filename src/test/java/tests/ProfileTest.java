@@ -44,6 +44,7 @@ public class ProfileTest extends BaseTest {
         profilePage
                 .openProfilePage()
                 .openEditProfileForm();
+        AllureUtils.takeScreenshot(driver);
         profileModalPage
                 .uploadPhoto("src/test/resources/c1f15e1s-1920.jpg")
                 .savePhoto()
