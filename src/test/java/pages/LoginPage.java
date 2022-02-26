@@ -17,10 +17,12 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+    @Step("Checking if the Login page is open")
     public boolean isPageOpen() {
         return isExist(LOGIN_BUTTON);
     }
 
+    @Step("Open 'Login' page")
     public LoginPage open() {
         log.debug("Start open method on LoginPage");
         driver.get(BASE_URL);
@@ -33,10 +35,12 @@ public class LoginPage extends BasePage {
         login(user, password);
         return this;
     }
+
     @Step("Get error message")
     public static String getErrorMessage() {
         return driver.findElement(ERROR_MESSAGE).getText();
     }
+
     @Step("Starting the login method on the LoginPage")
     public HomePage login(String email, String password) {
         log.debug("Starting the login method on the LoginPage");
