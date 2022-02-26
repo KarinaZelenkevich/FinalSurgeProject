@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest {
     public void loginWithValidData() {
         boolean isHomePageOpened = loginPage
                 .open()
-                .login(email, password)
+                .login(email, password + "kjiilj")
                 .open()
                 .isPageOpen();
         AllureUtils.takeScreenshot(driver);
