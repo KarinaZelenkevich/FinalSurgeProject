@@ -1,6 +1,5 @@
 package tests;
-
-import io.qameta.allure.Description;
+import jdk.jfr.Description;
 import models.PrintWorkouts;
 import models.PrintWorkoutsFactory;
 import org.testng.Assert;

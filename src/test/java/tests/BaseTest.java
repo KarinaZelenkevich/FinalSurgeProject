@@ -4,11 +4,15 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
 import tests.base.TestListener;
 
 import java.util.concurrent.TimeUnit;
+
 
 @Listeners(TestListener.class)
 public abstract class BaseTest {
@@ -43,12 +47,23 @@ public abstract class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void setUp(@Optional("chrome") String browser) {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
+        if (browser.equals(("chrome"))) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--start-maximized");
+            options.addArguments("--headless");
+            options.addArguments("--disable-notifications");
+            driver = new ChromeDriver(options);
+        } else if (browser.equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("--start-maximized");
+            options.addArguments("--disable-notifications");
+            driver = new FirefoxDriver();
+        }
+        testContext.setAttribute("driver", driver);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         calendarPage = new CalendarPage(driver);

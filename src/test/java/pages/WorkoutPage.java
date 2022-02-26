@@ -1,6 +1,5 @@
 package pages;
 
-import com.steadystate.css.parser.Locatable;
 import elements.DropDown;
 import elements.Input;
 import elements.RadioButton;
@@ -11,9 +10,7 @@ import models.WorkoutFullAdd;
 import models.WorkoutQuickAdd;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.w3c.dom.Text;
 
-import java.util.concurrent.TimeUnit;
 
 @Log4j2
 public class WorkoutPage extends BasePage {

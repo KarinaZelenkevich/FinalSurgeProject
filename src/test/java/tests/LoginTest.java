@@ -1,6 +1,6 @@
 package tests;
 
-import io.qameta.allure.Description;
+import jdk.jfr.Description;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
