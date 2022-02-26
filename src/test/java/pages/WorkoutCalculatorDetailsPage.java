@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,7 +20,7 @@ public class WorkoutCalculatorDetailsPage extends BasePage {
     public boolean isPageOpen() {
         return false;
     }
-
+    @Step("Check Calculations Is Opened")
     public static boolean checkCalculationsIsOpened() {
         WebDriverWait wait = new WebDriverWait(driver, 60);
         wait.until(ExpectedConditions.visibilityOfElementLocated(PACES_HEADER));

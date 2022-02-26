@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CaloricNeedsModalPage;
 import pages.PaceCalculatorModalPage;
+import utils.AllureUtils;
 
 
 public class OtherCalculatorTest extends BaseTest {
@@ -27,6 +28,7 @@ public class OtherCalculatorTest extends BaseTest {
                 .fillForm(form)
                 .clickCalculateButton();
         Assert.assertTrue(caloricNeedsModalPage.isPageOpen(), "CaloricNeeds page wasn't opened");
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Using 'Other Calculators' to calculate pace")
@@ -43,5 +45,6 @@ public class OtherCalculatorTest extends BaseTest {
                 .fillInForm(form)
                 .clickCalculateButton();
         Assert.assertTrue(paceCalculatorModalPage.paceChartTableIsVisible(), "Results table has not been opened");
+        AllureUtils.takeScreenshot(driver);
     }
 }

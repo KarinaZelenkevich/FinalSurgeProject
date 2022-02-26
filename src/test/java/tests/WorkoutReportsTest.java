@@ -5,6 +5,8 @@ import models.Reports;
 import models.ReportsFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.AllureUtils;
+
 import static org.testng.AssertJUnit.assertTrue;
 
 public class WorkoutReportsTest extends BaseTest {
@@ -22,5 +24,6 @@ public class WorkoutReportsTest extends BaseTest {
         workoutReportsModalPage.fillForm(reportView)
                 .clickViewReportButton();
         Assert.assertTrue(workoutReportsModalPage.getActivityFromTable(),"WorkoutName was not displayed");
+        AllureUtils.takeScreenshot(driver);
     }
 }

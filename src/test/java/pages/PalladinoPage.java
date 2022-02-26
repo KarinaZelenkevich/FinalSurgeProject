@@ -33,7 +33,7 @@ public class PalladinoPage extends BasePage {
         save();
         return new WorkoutCalculatorDetailsPage(driver);
     }
-
+    @Step("Click on Save button")
     public void save() {
         driver.findElement(SAVE_BUTTON).click();
     }

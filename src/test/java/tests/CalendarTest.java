@@ -5,6 +5,7 @@ import models.WorkoutAddFactory;
 import models.WorkoutQuickAdd;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.AllureUtils;
 
 
 @Log4j2
@@ -19,6 +20,7 @@ public class CalendarTest extends BaseTest {
         calendarPage
                 .open();
         Assert.assertTrue(calendarPage.isPageOpen(), "Calendar page wasn't opened");
+        AllureUtils.takeScreenshot(driver);
     }
 
 
@@ -37,5 +39,6 @@ public class CalendarTest extends BaseTest {
         calendarPage.reschedulingAWorkoutToANewDate(workout.getWorkoutName());
         Assert.assertTrue(workoutPage.checkWorkoutWasAddedToCalendar(
                 workout.getWorkoutName()), "Workout was not added to the calendar");
+        AllureUtils.takeScreenshot(driver);
     }
 }

@@ -3,6 +3,7 @@ package pages;
 import elements.DropDown;
 import elements.Input;
 import elements.TextArea;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.Calendar;
 import org.openqa.selenium.By;
@@ -24,7 +25,7 @@ public class CalendarModalPage extends BasePage {
     public boolean isPageOpen() {
         return isExist(MODAL_TITLE);
     }
-
+    @Step("Filling out a form on the Calendar page")
     public CalendarDetailsPage addSportsEvent(Calendar calendar) {
         log.info("Filling in the form quick add workout");
         driver.findElement(WORKOUT_DATE).clear();
