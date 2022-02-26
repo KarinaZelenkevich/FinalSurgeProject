@@ -4,9 +4,11 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.Profile;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import javax.swing.*;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -46,15 +48,16 @@ public class ProfilePage extends BasePage {
     @Step("Save profile's changes")
     public ProfilePage saveProfileChanges() {
         log.info("Click on save edit profile changes");
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("window.scrollBy(0,250)");
         driver.findElement(SAVE_EDIT_PROFILE).click();
         return new ProfilePage(driver);
     }
 
     @Step("Save photo")
     public ProfilePage savePhoto() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//a[@id='NextStep']")).click();
-        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//a[@id='NextStep']")).click();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return new ProfilePage(driver);

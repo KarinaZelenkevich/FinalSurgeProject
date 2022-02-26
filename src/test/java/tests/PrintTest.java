@@ -1,4 +1,5 @@
 package tests;
+
 import jdk.jfr.Description;
 import models.PrintWorkouts;
 import models.PrintWorkoutsFactory;
@@ -22,6 +23,5 @@ public class PrintTest extends BaseTest {
         printWorkout
                 .fillForm(periodForPrint);
         Assert.assertTrue(printPage.isPageOpen(), "Print page wasn't opened");
-        AllureUtils.takeScreenshot(driver);
     }
 }

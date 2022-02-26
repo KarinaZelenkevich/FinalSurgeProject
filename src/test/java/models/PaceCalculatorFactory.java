@@ -11,7 +11,6 @@ public class PaceCalculatorFactory {
                 .minutes("50")
                 .seconds("00")
                 .distance("10")
-                .distance("Kilometers")
                 .build();
     }
 }

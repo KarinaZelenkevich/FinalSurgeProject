@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 @Log4j2
 public class ProfileModalPage extends BasePage {
@@ -74,18 +75,6 @@ public class ProfileModalPage extends BasePage {
         driver.findElement(By.cssSelector("[type = 'file']")).sendKeys(file.getAbsolutePath());
         driver.switchTo().defaultContent();
         return new ProfilePage(driver);
-    }
-
-    public String weightMeasure(String measure) {
-        switch (measure) {
-            case "Ibs":
-                measure = "Ibs";
-                break;
-            case "kg":
-                measure = "kg";
-                break;
-        }
-        return measure;
     }
 
 

@@ -19,7 +19,6 @@ public class WorkoutFullAddTest extends BaseTest {
         workoutFullAddPage
                 .open();
         Assert.assertTrue(workoutFullAddPage.isPageOpened(), "Workout Full Add page was not opened");
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Add workout with quick add")
@@ -36,6 +35,6 @@ public class WorkoutFullAddTest extends BaseTest {
                 .fullAdd(workout)
                 .saveFullAddForm();
         Assert.assertTrue(workoutDetailsPage.isPageOpen(), "Workout Full Add page was not opened");
-        AllureUtils.takeScreenshot(driver);
+
     }
 }

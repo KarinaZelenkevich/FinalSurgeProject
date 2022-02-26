@@ -27,7 +27,6 @@ public class OtherCalculatorTest extends BaseTest {
                 .fillForm(form)
                 .clickCalculateButton();
         Assert.assertTrue(caloricNeedsModalPage.isPageOpen(), "CaloricNeeds page wasn't opened");
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Using 'Other Calculators' to calculate pace")
@@ -39,13 +38,10 @@ public class OtherCalculatorTest extends BaseTest {
         CaloricNeedsModalPage
                 .open()
                 .clickPaceCalculatorButton();
-        AllureUtils.takeScreenshot(driver);
         PaceCalculator form = PaceCalculatorFactory.getDataFromTheForm();
         PaceCalculatorModalPage
                 .fillInForm(form)
                 .clickCalculateButton();
-        AllureUtils.takeScreenshot(driver);
         Assert.assertTrue(paceCalculatorModalPage.paceChartTableIsVisible(), "Results table has not been opened");
-        AllureUtils.takeScreenshot(driver);
     }
 }

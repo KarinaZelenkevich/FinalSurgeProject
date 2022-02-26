@@ -34,6 +34,6 @@ public class DropDown {
     }
     public void selectDropdownInPaceCalculator(String text) {
         System.out.println(String.format("Writing text '%s' into DropDown with label %s", text, label));
-        driver.findElement(By.xpath(String.format(DROPDOWN_IN_PACE_CALCULATOR, label))).sendKeys(text);
+        driver.findElement(By.xpath(String.format(DROPDOWN_IN_PACE_CALCULATOR, label))).click();
     }
 }

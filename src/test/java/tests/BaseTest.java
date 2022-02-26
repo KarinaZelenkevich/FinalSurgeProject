@@ -88,9 +88,9 @@ public abstract class BaseTest {
         workoutReportsModalPage = new WorkoutReportsModalPage(driver);
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() {
-        driver.quit();
-    }
+//    @AfterMethod(alwaysRun = true)
+//    public void tearDown() {
+//        driver.quit();
+//    }
 
 }

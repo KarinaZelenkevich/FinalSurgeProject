@@ -33,7 +33,6 @@ public class ProfileTest extends BaseTest {
                 .editProfile(profile)
                 .saveProfileChanges()
                 .validateInput(profile);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Add user photo to the profile")
@@ -44,14 +43,13 @@ public class ProfileTest extends BaseTest {
         profilePage
                 .openProfilePage()
                 .openEditProfileForm();
-        AllureUtils.takeScreenshot(driver);
         profileModalPage
-                .uploadPhoto("src/test/resources/c1f15e1s-1920.jpg")
+                .uploadPhoto("src/test/resources/c1f15e1s-1920.jpg");
+        profilePage
                 .savePhoto()
                 .saveProfileChanges()
                 .openEditProfileForm()
                 .deletePhoto()
                 .saveProfileChanges();
-        AllureUtils.takeScreenshot(driver);
     }
 }

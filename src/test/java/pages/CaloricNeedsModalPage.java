@@ -57,7 +57,7 @@ public class CaloricNeedsModalPage extends BasePage {
     public PaceCalculatorModalPage clickPaceCalculatorButton() {
         driver.switchTo().frame(driver.findElement(OTHER_CALCULATOR_FRAME));
         log.info("clicking 'Pace Calculator' button");
-        driver.findElement(PACE_CALCULATOR_BUTTON);
+        driver.findElement(PACE_CALCULATOR_BUTTON).click();
         return new PaceCalculatorModalPage(driver);
     }
 
