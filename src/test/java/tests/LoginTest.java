@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest {
     public void loginWithValidData() {
         loginPage
                 .open()
-                .login(email, password + "fwf")
+                .login(email, password)
                 .open()
                 .isPageOpen();
         Assert.assertTrue(homePage.isPageOpen(), "HomePage wasn't opened");
