@@ -1,6 +1,7 @@
 package pages;
 
 
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import jdk.jfr.Description;
 import lombok.Getter;
@@ -47,7 +48,7 @@ public class CalendarPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         return this;
     }
-
+    @Attachment
     @Step("ReschedulingAWorkoutToANewDate {workoutName} in the calendar")
     public void reschedulingAWorkoutToANewDate(String workoutName) {
         int currentDay = LocalDate.now().getDayOfMonth();

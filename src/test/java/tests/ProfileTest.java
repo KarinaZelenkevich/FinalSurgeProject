@@ -4,7 +4,7 @@ import models.Profile;
 import models.ProfileFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.AllureUtils;
+
 
 
 public class ProfileTest extends BaseTest {

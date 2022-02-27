@@ -5,7 +5,7 @@ import models.PrintWorkouts;
 import models.PrintWorkoutsFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.AllureUtils;
+
 
 
 public class PrintTest extends BaseTest {

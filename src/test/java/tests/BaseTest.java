@@ -41,9 +41,7 @@ public abstract class BaseTest {
     CaloricNeedsModalPage caloricNeedsModalPage;
     PaceCalculatorModalPage paceCalculatorModalPage;
     WorkoutReportsModalPage workoutReportsModalPage;
-    protected String baseUrl = utils.PropertyReader.getProperty("FINAL_SURGE_URL", "finalsurge.baseUrl");
-    protected String email = utils.PropertyReader.getProperty("FINAL_SURGE_EMAIL", "finalsurge.email");
-    protected String password = utils.PropertyReader.getProperty("FINAL_SURGE_PASSWORD", "finalsurge.password");
+    String email, password;
 
     @Parameters({"browser"})
     @BeforeMethod
@@ -86,11 +84,14 @@ public abstract class BaseTest {
         caloricNeedsModalPage = new CaloricNeedsModalPage(driver);
         paceCalculatorModalPage = new PaceCalculatorModalPage(driver);
         workoutReportsModalPage = new WorkoutReportsModalPage(driver);
+        email = System.getenv().getOrDefault("FINAL_SURGE_EMAIL", utils.PropertyReader.getProperty("finalsurge.email"));
+        password = System.getenv().getOrDefault("FINAL_SURGE_PASSWORD", utils.PropertyReader.getProperty("finalsurge.password"));
+
     }
 
-//    @AfterMethod(alwaysRun = true)
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+        driver.quit();
+    }
 
 }

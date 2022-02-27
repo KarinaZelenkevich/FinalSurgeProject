@@ -17,6 +17,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+
     @Step("Checking if the Login page is open")
     public boolean isPageOpen() {
         return isExist(LOGIN_BUTTON);

@@ -1,21 +1,23 @@
 package tests;
 
+import io.qameta.allure.Attachment;
 import jdk.jfr.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
-import utils.AllureUtils;
+
 
 import static org.testng.AssertJUnit.assertEquals;
 
 public class LoginTest extends BaseTest {
 
+
     @Test
     public void loginWithValidData() {
         loginPage
                 .open()
-                .login(email, password)
+                .login(email, password + "sgg")
                 .open()
                 .isPageOpen();
         Assert.assertTrue(homePage.isPageOpen(), "HomePage wasn't opened");

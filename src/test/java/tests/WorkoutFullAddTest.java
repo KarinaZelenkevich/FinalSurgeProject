@@ -4,7 +4,6 @@ import models.WorkoutAddFactory;
 import models.WorkoutFullAdd;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.AllureUtils;
 
 public class WorkoutFullAddTest extends BaseTest {
 

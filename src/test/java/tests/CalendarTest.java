@@ -5,7 +5,7 @@ import models.WorkoutAddFactory;
 import models.WorkoutQuickAdd;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.AllureUtils;
+
 
 
 @Log4j2
