@@ -44,7 +44,7 @@ public abstract class BaseTest {
     String email, password;
 
     @Parameters({"browser"})
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
         if (browser.equals(("chrome"))) {
             WebDriverManager.chromedriver().setup();
@@ -84,6 +84,7 @@ public abstract class BaseTest {
         caloricNeedsModalPage = new CaloricNeedsModalPage(driver);
         paceCalculatorModalPage = new PaceCalculatorModalPage(driver);
         workoutReportsModalPage = new WorkoutReportsModalPage(driver);
+
         email = System.getenv().getOrDefault("FINAL_SURGE_EMAIL", utils.PropertyReader.getProperty("finalsurge.email"));
         password = System.getenv().getOrDefault("FINAL_SURGE_PASSWORD", utils.PropertyReader.getProperty("finalsurge.password"));
 
@@ -93,5 +94,5 @@ public abstract class BaseTest {
     public void tearDown() {
         driver.quit();
     }
-
 }
+

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Regression Browsers " thread-count="2" parallel="tests">
-    <listeners>
-        <listener class-name="tests.base.AnnotationTransformer"/>
-    </listeners>
+<suite name="Regression Browsers" thread-count="2" parallel="tests">
     <test name="test 1">
         <parameter name="browser" value="chrome"/>
         <classes>
@@ -15,7 +12,7 @@
         </classes>
     </test>
     <test name="test 2">
-        <parameter name="browser" value="firefox"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.WorkoutReportsTest"/>
             <class name="tests.WorkoutFullAddTest"/>

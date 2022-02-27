@@ -1,6 +1,5 @@
 package tests;
 
-import io.qameta.allure.Attachment;
 import jdk.jfr.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,18 +11,19 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class LoginTest extends BaseTest {
 
-
+    @Description("login with valid data")
     @Test
     public void loginWithValidData() {
         loginPage
                 .open()
-                .login(email, password)
+                .login(email, password + "fwf")
                 .open()
                 .isPageOpen();
         Assert.assertTrue(homePage.isPageOpen(), "HomePage wasn't opened");
 
     }
 
+    @Description("check LogIn with invalid email")
     @Test
     public void checkLogInWithInvalidEmail() {
         loginPage
@@ -36,6 +36,7 @@ public class LoginTest extends BaseTest {
                 "Please enter a valid email address.");
     }
 
+    @Description("check LogIn with invalid password")
     @Test
     public void checkLogInWithInvalidPassword() {
         loginPage
