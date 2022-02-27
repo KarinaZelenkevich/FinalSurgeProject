@@ -5,7 +5,7 @@
         <listener class-name="tests.base.AnnotationTransformer"/>
     </listeners>
     <test name="test 1">
-        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.LoginTest"/>
             <class name="tests.ProfileTest"/>
@@ -15,7 +15,7 @@
         </classes>
     </test>
     <test name="test 2">
-        <parameter name="browser" value="firefox"></parameter>
+        <parameter name="browser" value="firefox"/>
         <classes>
             <class name="tests.WorkoutReportsTest"/>
             <class name="tests.WorkoutFullAddTest"/>

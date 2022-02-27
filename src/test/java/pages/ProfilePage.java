@@ -4,9 +4,13 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.Profile;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import javax.swing.*;
+import java.io.File;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -46,17 +50,18 @@ public class ProfilePage extends BasePage {
     @Step("Save profile's changes")
     public ProfilePage saveProfileChanges() {
         log.info("Click on save edit profile changes");
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("window.scrollBy(0,250)");
         driver.findElement(SAVE_EDIT_PROFILE).click();
         return new ProfilePage(driver);
     }
 
     @Step("Save photo")
     public ProfilePage savePhoto() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//a[@id='NextStep']")).click();
-        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//a[@id='NextStep']")).click();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.findElement(By.id("NextStep")).click();
+        Thread.sleep(7000);
+        driver.findElement(By.id("NextStep")).click();
+        Thread.sleep(7000);
         return new ProfilePage(driver);
     }
 
@@ -73,8 +78,7 @@ public class ProfilePage extends BasePage {
     public void validateInput(Profile profile) {
         log.info("Validating data on profile page");
         validateInput("Name:", String.format("Name: " + profile.getName() + " " + profile.getLastName()));
-//        validateInput("Birthday:", String.format("Birthday: " + profile.getBirthday()));
-//        validateInput("Weight:", String.format("Weight: %s %s", profile.getWeight(), profile.getWeightMeasure()));
+        validateInput("Birthday:", String.format("Birthday: " + profile.getBirthday()));
         validateInput("Country:", String.format("Country: " + profile.getCountry()));
         validateInput("City:", String.format("City: " + profile.getCity()));
         validateInput("Zip/Postal Code:", String.format("Zip/Postal Code: " + profile.getZip()));

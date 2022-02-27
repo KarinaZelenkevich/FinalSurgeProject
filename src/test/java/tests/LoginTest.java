@@ -1,24 +1,26 @@
 package tests;
 
+import io.qameta.allure.Attachment;
 import jdk.jfr.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
-import utils.AllureUtils;
+
+
 import static org.testng.AssertJUnit.assertEquals;
 
 public class LoginTest extends BaseTest {
 
+
     @Test
     public void loginWithValidData() {
-       loginPage
+        loginPage
                 .open()
                 .login(email, password)
                 .open()
                 .isPageOpen();
         Assert.assertTrue(homePage.isPageOpen(), "HomePage wasn't opened");
-        AllureUtils.takeScreenshot(driver);
 
     }
 
@@ -32,7 +34,6 @@ public class LoginTest extends BaseTest {
         assertEquals(error,
                 "Please enter a valid email address.",
                 "Please enter a valid email address.");
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Test
@@ -45,7 +46,6 @@ public class LoginTest extends BaseTest {
         assertEquals(error,
                 "Please enter a password.",
                 "Please enter a password.");
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Description("Logout test")
@@ -61,6 +61,5 @@ public class LoginTest extends BaseTest {
         assertEquals(alert,
                 "You have been successfully logged out of the system.",
                 "You have been successfully logged out of the system.");
-        AllureUtils.takeScreenshot(driver);
     }
 }

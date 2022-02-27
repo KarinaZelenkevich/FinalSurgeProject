@@ -77,7 +77,6 @@ public class WorkoutCalculatorTest extends BaseTest {
                 .createTinmanCalculator(workoutCalculator);
         boolean message = driver.findElement(By.xpath("//h4[contains(text(), 'Race Information')]")).isDisplayed();
         Assert.assertTrue(message, "Error filling out the Tinman Workout Form");
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Calculator Palladino test")

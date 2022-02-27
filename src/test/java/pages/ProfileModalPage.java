@@ -2,15 +2,18 @@ package pages;
 
 import elements.DropDown;
 import elements.Input;
+import elements.RadioButton;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.Profile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 @Log4j2
 public class ProfileModalPage extends BasePage {
@@ -21,7 +24,7 @@ public class ProfileModalPage extends BasePage {
     private static final By CITY_NAME = By.id("City");
     private static final By ZIP = By.id("Zip");
     private static final By REGION = By.id("Region");
-
+    public static final By DROPDOWN_BDAY_CLICK = By.xpath("//input[@id='BDay']");
 
     public static final By PROFILE_MODAL_TITLE = By.xpath("//label[text()='Profile Picture']");
 
@@ -39,14 +42,12 @@ public class ProfileModalPage extends BasePage {
         log.info("Add Last Name to profile");
         new Input(driver, "lname").clear(LAST_NAME);
         new Input(driver, "lname").writeInProfileForm(profile.getLastName());
-//        new RadioButton(driver, "female").selectRadioButtonInProfileForm(profile.getGender());
-        log.info("Add Birthday to profile");
-//        new Input(driver, "BDay").clear(BIRTHDAY);
-//        new DropDown(driver, "BDay").selectDropdown(profile.getBirthday());
+        new RadioButton(driver, "female").selectRadioButtonInProfileForm(profile.getGender());
         log.info("Add weight to profile");
         new Input(driver, "Weight").clear(WEIGHT);
         new Input(driver, "Weight").writeInProfileForm(profile.getWeight());
         log.info("Choose weight measure in profile");
+        new RadioButton(driver, "optionsRadios4").selectRadioButtonInProfileForm(profile.getWeightMeasure());
         new DropDown(driver, "Country").selectDropdownInProfileFormForCountry(profile.getCountry());
         log.info("Add state to profile");
         new DropDown(driver, "Region").selectDropdownInProfileFormForCountry(profile.getState());
@@ -56,6 +57,9 @@ public class ProfileModalPage extends BasePage {
         log.info("Add zip code to profile");
         new Input(driver, "Zip").clear(ZIP);
         new Input(driver, "Zip").writeInProfileForm(profile.getZip());
+        log.info("Add Birthday to profile");
+        new Input(driver, "BDay").clear(BIRTHDAY);
+        new DropDown(driver, "BDay").selectDropdownBday(profile.getBirthday());
         return new ProfilePage(driver);
     }
 
@@ -74,18 +78,6 @@ public class ProfileModalPage extends BasePage {
         driver.findElement(By.cssSelector("[type = 'file']")).sendKeys(file.getAbsolutePath());
         driver.switchTo().defaultContent();
         return new ProfilePage(driver);
-    }
-
-    public String weightMeasure(String measure) {
-        switch (measure) {
-            case "Ibs":
-                measure = "Ibs";
-                break;
-            case "kg":
-                measure = "kg";
-                break;
-        }
-        return measure;
     }
 
 

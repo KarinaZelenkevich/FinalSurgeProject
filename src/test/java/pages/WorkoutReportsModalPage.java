@@ -14,7 +14,7 @@ public class WorkoutReportsModalPage extends BasePage {
     private static final By VIEW_REPORT_BUTTON = By.id("saveButton");
     private static final By STARTING_DATE = By.id("WorkoutDate");
     private static final By ENDING_DATE = By.id("WorkoutDateEnd");
-    private static final By ACTIVITY_COLUMN_OF_TABLE = By.xpath("//span[text()='Calvin Zieme - You want a toe? I can get you...']");
+    private static final By ACTIVITY_COLUMN_OF_TABLE = By.xpath("//span[text()='George Dach MD - This is a very complicated...']");
 
     public WorkoutReportsModalPage(WebDriver driver) {
         super(driver);

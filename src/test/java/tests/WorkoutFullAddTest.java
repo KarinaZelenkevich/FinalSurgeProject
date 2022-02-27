@@ -4,7 +4,6 @@ import models.WorkoutAddFactory;
 import models.WorkoutFullAdd;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.AllureUtils;
 
 public class WorkoutFullAddTest extends BaseTest {
 
@@ -19,7 +18,6 @@ public class WorkoutFullAddTest extends BaseTest {
         workoutFullAddPage
                 .open();
         Assert.assertTrue(workoutFullAddPage.isPageOpened(), "Workout Full Add page was not opened");
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Add workout with quick add")
@@ -36,6 +34,6 @@ public class WorkoutFullAddTest extends BaseTest {
                 .fullAdd(workout)
                 .saveFullAddForm();
         Assert.assertTrue(workoutDetailsPage.isPageOpen(), "Workout Full Add page was not opened");
-        AllureUtils.takeScreenshot(driver);
+
     }
 }

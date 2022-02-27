@@ -4,7 +4,7 @@ import models.Profile;
 import models.ProfileFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.AllureUtils;
+
 
 
 public class ProfileTest extends BaseTest {
@@ -13,11 +13,9 @@ public class ProfileTest extends BaseTest {
     public void editProfilePageShouldBeOpened() {
         loginPage
                 .open()
-                .login("blablablablablabla@maillinator.com", "KarinaKarina12");
+                .login(email, password);
         profilePage.openProfilePage();
-
         Assert.assertTrue(profilePage.isPageOpen(), "Profile page wasn't opened");
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Fill in User profile form")
@@ -33,7 +31,6 @@ public class ProfileTest extends BaseTest {
                 .editProfile(profile)
                 .saveProfileChanges()
                 .validateInput(profile);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Test(description = "Add user photo to the profile")
@@ -51,6 +48,5 @@ public class ProfileTest extends BaseTest {
                 .openEditProfileForm()
                 .deletePhoto()
                 .saveProfileChanges();
-        AllureUtils.takeScreenshot(driver);
     }
 }

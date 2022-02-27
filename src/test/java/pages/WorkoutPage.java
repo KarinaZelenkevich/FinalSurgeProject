@@ -44,11 +44,6 @@ public class WorkoutPage extends BasePage {
         new DropDown(driver, "ActivityType").selectDropdown(workout.getActivityType());
         new Input(driver, "Name").write(workout.getWorkoutName());
         new TextArea(driver, "Desc").write(workout.getDescription());
-//        new RadioButton(driver, "PlannedWorkout").selectRadioButton(workout.isPlanned());
-//        if (workout.isPlanned()) {
-//            new InputHelper(driver, "PDistance").writeText(workout.getPlannedDistance());
-//            new InputHelper(driver, "PDuration").writeText(workout.getPlannedDuration());
-//        }
         new Input(driver, "Distance").write(workout.getDistance());
         new Input(driver, "Duration").write(workout.getDuration());
         new DropDown(driver, "HowFeel").selectDropdown(workout.getHowIFelt());
@@ -74,18 +69,6 @@ public class WorkoutPage extends BasePage {
         log.info("Check workout with name " + workoutTitle + " was added");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(calendarTitleLocator, workoutTitle))));
         return driver.findElement(By.xpath(String.format(calendarTitleLocator, workoutTitle))).isDisplayed();
-    }
-
-
-    @Step("Check that workout with {workoutTitle} was deleted from the calendar")
-    public boolean checkWorkoutWasDeletedFromCalendar(String workoutTitle) {
-        log.info("Check workout with name " + workoutTitle + " was deleted");
-        try {
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(String.format(calendarTitleLocator, workoutTitle))));
-            return driver.findElement(By.xpath(String.format(calendarTitleLocator, workoutTitle))).isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-        }
     }
 
     @Override
