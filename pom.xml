@@ -23,7 +23,7 @@
         <aspectjweaver.version>1.9.6</aspectjweaver.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
+        <maven-surefire-plugin>2.20</maven-surefire-plugin>
         <webdrivermanager>5.0.0</webdrivermanager>
         <gson>2.8.9</gson>
         <rest-assured>4.5.0</rest-assured>

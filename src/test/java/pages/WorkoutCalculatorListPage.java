@@ -47,8 +47,8 @@ public class WorkoutCalculatorListPage extends BasePage {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(CALCULATOR_BUTTON));
         driver.findElement(CALCULATOR_BUTTON).click();
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(HANSONS_BUTTON));
         driver.switchTo().frame(IFRAME_BUTTON);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(HANSONS_BUTTON));
         driver.findElement(HANSONS_BUTTON).click();
         return new HansonsPage(driver);
     }

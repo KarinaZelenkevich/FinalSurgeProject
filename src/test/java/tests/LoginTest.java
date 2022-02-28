@@ -28,7 +28,7 @@ public class LoginTest extends BaseTest {
     public void checkLogInWithInvalidEmail() {
         loginPage
                 .open()
-                .login("", password);
+                .login("jk", password);
 
         String error = LoginPage.getErrorMessage();
         assertEquals(error,
@@ -41,7 +41,7 @@ public class LoginTest extends BaseTest {
     public void checkLogInWithInvalidPassword() {
         loginPage
                 .open()
-                .login(email, "");
+                .login(email, "mbbh");
 
         String error = LoginPage.getErrorMessage();
         assertEquals(error,

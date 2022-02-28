@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import models.PrintWorkouts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
 public class PrintWorkout extends BasePage {
@@ -28,12 +29,13 @@ public class PrintWorkout extends BasePage {
     @Step("Clicking 'Print Workouts' button")
     public void clickPrintWorkoutsButton() {
         log.info("clicking 'Print Workouts' button");
-        driver.findElement(PRINT_WORKOUTS_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(PRINT_WORKOUTS_IFRAME)).click();
     }
 
     @Step("Filling 'Print Workouts' form")
     public void fillForm(PrintWorkouts printWorkouts) {
         driver.switchTo().frame(driver.findElement(PRINT_WORKOUTS_IFRAME));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(PRINT_WORKOUTS_IFRAME));
         new Input(driver, "Print Starting Date").writeInPrintFormStartDate(printWorkouts.getStartDate());
         new Input(driver, "Print Ending Date").writeInPrintFormEndingDate(printWorkouts.getEndDate());
         clickPrintWorkoutsButton();
