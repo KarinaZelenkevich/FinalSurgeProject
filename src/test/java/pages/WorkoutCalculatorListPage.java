@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
 public class WorkoutCalculatorListPage extends BasePage {
@@ -44,7 +45,9 @@ public class WorkoutCalculatorListPage extends BasePage {
     @Step("Click workout calculator and then the Hansons button")
     public HansonsPage clickWorkoutCalculatorAndHansonsButton() {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(CALCULATOR_BUTTON));
         driver.findElement(CALCULATOR_BUTTON).click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(HANSONS_BUTTON));
         driver.switchTo().frame(IFRAME_BUTTON);
         driver.findElement(HANSONS_BUTTON).click();
         return new HansonsPage(driver);
@@ -53,6 +56,7 @@ public class WorkoutCalculatorListPage extends BasePage {
     @Step("Click workout calculator and then the McMillan button")
     public McMillanPage clickWorkoutCalculatorAndMcMillanButton() {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(CALCULATOR_BUTTON));
         driver.findElement(CALCULATOR_BUTTON).click();
         driver.switchTo().frame(IFRAME_BUTTON);
         log.info("Click {} in order to open the McMillan workout on the calculator page", MCMILLAN_BUTTON);
@@ -63,6 +67,7 @@ public class WorkoutCalculatorListPage extends BasePage {
     @Step("Click workout calculator and then the Tinman button")
     public TinmanPage clickWorkoutCalculatorAndTinmanButton() {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(CALCULATOR_BUTTON));
         driver.findElement(CALCULATOR_BUTTON).click();
         driver.switchTo().frame(IFRAME_BUTTON);
         log.info("Click {} in order to open the Tinman workout on the calculator page", TINMAN_BUTTON);
@@ -73,6 +78,7 @@ public class WorkoutCalculatorListPage extends BasePage {
     @Step("Click workout calculator and then the Palladino button")
     public PalladinoPage clickWorkoutCalculatorAndPalladinoButton() {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(CALCULATOR_BUTTON));
         driver.findElement(CALCULATOR_BUTTON).click();
         driver.switchTo().frame(IFRAME_BUTTON);
         log.info("Click {} in order to open the Palladino workout on the calculator page", PALLADINO_BUTTON);
