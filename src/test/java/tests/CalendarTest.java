@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Flaky;
 import lombok.extern.log4j.Log4j2;
 import models.WorkoutAddFactory;
 import models.WorkoutQuickAdd;
@@ -24,7 +25,7 @@ public class CalendarTest extends BaseTest {
         AllureUtils.takeScreenshot(driver);
     }
 
-
+    @Flaky
     @Test(description = "Test that workout could be moved to the other date with drag-and-drop")
     public void workoutShouldBeDragAndDropped() {
         loginPage
