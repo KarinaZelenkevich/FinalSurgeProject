@@ -9,18 +9,24 @@
     <test name="WorkoutCalculator test">
         <classes>
             <class name="tests.WorkoutCalculatorTest"/>
-            <class name="tests.WorkoutFullAddTest"/>
-            <class name="tests.OtherCalculatorTest"/>
         </classes>
     </test><!-- Test -->
-
+    <test name="WorkoutCalculator test">
+        <classes>
+            <class name="tests.WorkoutFullAddTest"/>
+        </classes>
+    </test><!-- Test -->
     <test name="Workout report test">
         <classes>
             <class name="tests.WorkoutReportsTest"/>
             <class name="tests.PrintTest"/>
         </classes>
     </test> <!-- Test -->
-
+    <test name="WorkoutCalculator test">
+        <classes>
+            <class name="tests.OtherCalculatorTest"/>
+        </classes>
+    </test><!-- Test -->
     <test name="Calendar test">
         <classes>
             <class name="tests.CalendarTest"/>
