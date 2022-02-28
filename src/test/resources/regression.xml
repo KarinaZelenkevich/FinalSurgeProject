@@ -10,12 +10,12 @@
         <classes>
             <class name="tests.WorkoutCalculatorTest"/>
         </classes>
-    </test><!-- Test -->
+    </test>
     <test name="WorkoutCalculator test">
         <classes>
             <class name="tests.WorkoutFullAddTest"/>
         </classes>
-    </test><!-- Test -->
+    </test>
     <test name="Workout report test">
         <classes>
             <class name="tests.WorkoutReportsTest"/>
