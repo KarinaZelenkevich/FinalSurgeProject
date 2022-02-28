@@ -9,6 +9,7 @@
         </classes>
     </test> <!-- Test -->
     <test name="WorkoutCalculator test">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.WorkoutCalculatorTest"/>
             <class name="tests.WorkoutFullAddTest"/>
@@ -17,6 +18,7 @@
     </test><!-- Test -->
 
     <test name="Workout report test">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.WorkoutReportsTest"/>
             <class name="tests.PrintTest"/>
@@ -24,12 +26,14 @@
     </test> <!-- Test -->
 
     <test name="Calendar test">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.CalendarTest"/>
         </classes>
     </test> <!-- Test -->
 
     <test name="Profile test">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.ProfileTest"/>
         </classes>

@@ -37,7 +37,7 @@ public class WorkoutCalculatorListPage extends BasePage {
     @Step("Click workout calculator on calendar page")
     public IntensityPage clickWorkoutCalculator() {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
-        driver.findElement(CALCULATOR_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(CALCULATOR_BUTTON)).click();
         driver.switchTo().frame(IFRAME_BUTTON);
         return new IntensityPage(driver);
     }
@@ -45,10 +45,9 @@ public class WorkoutCalculatorListPage extends BasePage {
     @Step("Click workout calculator and then the Hansons button")
     public HansonsPage clickWorkoutCalculatorAndHansonsButton() {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(CALCULATOR_BUTTON));
-        driver.findElement(CALCULATOR_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(CALCULATOR_BUTTON)).click();
         driver.switchTo().frame(IFRAME_BUTTON);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(HANSONS_BUTTON));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(HANSONS_BUTTON)).click();
         driver.findElement(HANSONS_BUTTON).click();
         return new HansonsPage(driver);
     }
@@ -56,33 +55,30 @@ public class WorkoutCalculatorListPage extends BasePage {
     @Step("Click workout calculator and then the McMillan button")
     public McMillanPage clickWorkoutCalculatorAndMcMillanButton() {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(CALCULATOR_BUTTON));
-        driver.findElement(CALCULATOR_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(CALCULATOR_BUTTON)).click();
         driver.switchTo().frame(IFRAME_BUTTON);
         log.info("Click {} in order to open the McMillan workout on the calculator page", MCMILLAN_BUTTON);
-        driver.findElement(MCMILLAN_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(MCMILLAN_BUTTON)).click();;
         return new McMillanPage(driver);
     }
 
     @Step("Click workout calculator and then the Tinman button")
     public TinmanPage clickWorkoutCalculatorAndTinmanButton() {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(CALCULATOR_BUTTON));
-        driver.findElement(CALCULATOR_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(CALCULATOR_BUTTON)).click();
         driver.switchTo().frame(IFRAME_BUTTON);
         log.info("Click {} in order to open the Tinman workout on the calculator page", TINMAN_BUTTON);
-        driver.findElement(TINMAN_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(TINMAN_BUTTON)).click();
         return new TinmanPage(driver);
     }
 
     @Step("Click workout calculator and then the Palladino button")
     public PalladinoPage clickWorkoutCalculatorAndPalladinoButton() {
         log.info("Click {} in order to open calculator page", CALCULATOR_BUTTON);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(CALCULATOR_BUTTON));
-        driver.findElement(CALCULATOR_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(CALCULATOR_BUTTON)).click();
         driver.switchTo().frame(IFRAME_BUTTON);
         log.info("Click {} in order to open the Palladino workout on the calculator page", PALLADINO_BUTTON);
-        driver.findElement(PALLADINO_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(PALLADINO_BUTTON)).click();
         return new PalladinoPage(driver);
     }
 }
