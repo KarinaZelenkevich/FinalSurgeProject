@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Regression Browsers" thread-count="2" parallel="tests">
-    <test name="test 1">
-        <parameter name="browser" value="chrome"/>
+    <test name="Login test">
         <classes>
             <class name="tests.LoginTest"/>
-            <class name="tests.ProfileTest"/>
-            <class name="tests.PrintTest"/>
-            <class name="tests.CalendarTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="WorkoutCalculator test">
+        <classes>
+            <class name="tests.WorkoutCalculatorTest"/>
+            <class name="tests.WorkoutFullAddTest"/>
             <class name="tests.OtherCalculatorTest"/>
         </classes>
-    </test>
-    <test name="test 2">
-        <parameter name="browser" value="chrome"/>
+    </test><!-- Test -->
+
+    <test name="Workout report test">
         <classes>
             <class name="tests.WorkoutReportsTest"/>
-            <class name="tests.WorkoutFullAddTest"/>
-            <class name="tests.WorkoutCalculatorTest"/>
+            <class name="tests.PrintTest"/>
         </classes>
-    </test>
+    </test> <!-- Test -->
+
+    <test name="Calendar test">
+        <classes>
+            <class name="tests.CalendarTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="Profile test">
+        <classes>
+            <class name="tests.ProfileTest"/>
+        </classes>
+    </test> <!-- Test -->
 </suite>
