@@ -54,7 +54,7 @@ public class CalendarPage extends BasePage {
         int currentDay = LocalDate.now().getDayOfMonth();
         int currentMonth = LocalDate.now().getMonthValue();
         int currentYear = LocalDate.now().getYear();
-        String day = String.format("%s", currentDay + 1);
+        String day = String.format("%s", currentDay - 2);
         log.info("Find element");
         WebElement element = driver.findElement(By.xpath(String.format(nameOfEvent, workoutName)));
         log.info("Find target");
