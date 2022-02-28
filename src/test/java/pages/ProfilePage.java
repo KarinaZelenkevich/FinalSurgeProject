@@ -58,8 +58,7 @@ public class ProfilePage extends BasePage {
 
     @Step("Save photo")
     public ProfilePage savePhoto() throws InterruptedException {
-        driver.findElement(By.id("NextStep")).click();
-        Thread.sleep(7000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("NextStep"))).click();
         driver.findElement(By.id("NextStep")).click();
         Thread.sleep(7000);
         return new ProfilePage(driver);

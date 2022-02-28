@@ -28,7 +28,7 @@ public class LoginTest extends BaseTest {
     public void checkLogInWithInvalidEmail() {
         loginPage
                 .open()
-                .login("jk", password);
+                .login(email + "fs", password);
 
         String error = LoginPage.getErrorMessage();
         assertEquals(error,
@@ -45,8 +45,8 @@ public class LoginTest extends BaseTest {
 
         String error = LoginPage.getErrorMessage();
         assertEquals(error,
-                "Please enter a password.",
-                "Please enter a password.");
+                "Invalid login credentials. Please try again.",
+                "Invalid login credentials. Please try again.");
     }
 
     @Description("Logout test")
