@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-
 public class ProfileTest extends BaseTest {
 
     @Test(description = "Open edit profile page")
