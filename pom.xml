@@ -31,7 +31,6 @@
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
@@ -44,7 +43,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.5</version>
+            <version>7.1.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
