@@ -7,6 +7,7 @@ import pages.HomePage;
 import pages.LoginPage;
 
 
+
 import static org.testng.AssertJUnit.assertEquals;
 
 public class LoginTest extends BaseTest {
@@ -20,7 +21,6 @@ public class LoginTest extends BaseTest {
                 .open()
                 .isPageOpen();
         Assert.assertTrue(homePage.isPageOpen(), "HomePage wasn't opened");
-
     }
 
     @Description("check LogIn with invalid email")
