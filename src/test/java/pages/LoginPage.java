@@ -11,6 +11,7 @@ public class LoginPage extends BasePage {
     public static final By PASSWORD = By.id("login_password");
     public static final By LOGIN_BUTTON = By.xpath("//button[contains(text(), 'Login')]");
     public static final By ERROR_MESSAGE = By.xpath("//label[@class='error']");
+    public static final By ERROR_MESSAGE_INVALID_PASSWORD = By.xpath("//field-footer__error]");
 
 
     public LoginPage(WebDriver driver) {
@@ -39,6 +40,11 @@ public class LoginPage extends BasePage {
     @Step("Get error message")
     public static String getErrorMessage() {
         return driver.findElement(ERROR_MESSAGE).getText();
+    }
+
+    @Step("Get error message for invalid data")
+    public static String getErrorMessageWithInvalidPassword() {
+        return driver.findElement(ERROR_MESSAGE_INVALID_PASSWORD).getText();
     }
 
     @Step("Starting the login method on the LoginPage")

@@ -25,7 +25,6 @@ public class CalendarTest extends BaseTest {
         AllureUtils.takeScreenshot(driver);
     }
 
-    @Flaky
     @Test(description = "Test that workout could be moved to the other date with drag-and-drop")
     public void workoutShouldBeDragAndDropped() {
         loginPage

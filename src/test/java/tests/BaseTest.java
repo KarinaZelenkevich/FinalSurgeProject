@@ -60,8 +60,6 @@ public abstract class BaseTest {
             driver = new EdgeDriver();
         }
 
-        context.setAttribute("driver", driver);
-
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         calendarPage = new CalendarPage(driver);
